@@ -6,7 +6,8 @@ import java.nio.file.Files;
 // 修改文件名
 public class 修改文件名 {
     public static void main(String[] args) {
-        String directoryPath = "G:\\Desktop\\edgedownloads\\艺冬"; // 修改为实际目录路径
+        String directoryPath = "G:\\Desktop\\小红书let's go\\素材\\简历如何写"; // 修改为实际目录路径
+        String name = "手把手教你改简历";
         File dir = new File(directoryPath);
 
         if (dir.isDirectory()) {
@@ -14,7 +15,7 @@ public class 修改文件名 {
             int fileCount = 1;
 
             for (File file : files) {
-                // 检查文件名是否包含括号
+                // 检查文件名是否包含括号，这个是删除重复文件
                 if (file.getName().contains("(1)") || file.getName().contains("(2)")) {
                     try {
                         // 删除包含括号的文件
@@ -25,7 +26,7 @@ public class 修改文件名 {
                         e.printStackTrace();
                     }
                 } else {
-                    String newFileName = fileCount++ + getFileExtension(file);
+                    String newFileName = name + fileCount++ + getFileExtension(file);
                     File newFile = new File(dir, newFileName);
 
                     // 重命名文件
